@@ -27,7 +27,7 @@ module Juicer
       # home
       #
       def install(version = nil)
-        version = "latest"
+        version = super(version)
         base = "closure-compiler-#{version}"
         filename = download(@download_link)
         target = File.join(@install_dir, path)
