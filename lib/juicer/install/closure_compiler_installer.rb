@@ -34,8 +34,7 @@ module Juicer
 
         Zip::ZipFile.open(filename) do |file|
           file.extract("README.md", File.join(target, version, "README.md"))
-          entry = file.glob('compiler*.jar').first
-          file.extract("#{entry.name}", File.join(target, "bin", "#{base}.jar"))
+          file.extract("closure-compiler-v20170124.jar", File.join(target, "bin", "#{base}.jar"))
         end
       end
 
