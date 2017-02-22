@@ -33,8 +33,8 @@ module Juicer
         target = File.join(@install_dir, path)
 
         Zip::ZipFile.open(filename) do |file|
-          file.extract("README", File.join(target, version, "README"))
-          file.extract("compiler.jar", File.join(target, "bin", "#{base}.jar"))
+          file.extract("README.md", File.join(target, version, "README.md"))
+          file.extract("compiler*.jar", File.join(target, "bin", "#{base}.jar"))
         end
       end
 
