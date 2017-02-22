@@ -2,11 +2,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{juicer}
-  s.version = "1.2.0"
+  s.version = "1.2.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["Christian Johansen"]
-  s.date = %q{2012-05-03}
+  s.authors = ["Christian Johansen", "Fabio Tani"]
+  s.date = %q{2017-02-2}
   s.default_executable = %q{juicer}
   s.description = %q{Resolve dependencies, merge and minify CSS and JavaScript files with Juicer - the command line tool for frontend engineers}
   s.email = %q{christian@cjohansen.no}
@@ -56,11 +56,12 @@ Gem::Specification.new do |s|
     "lib/juicer/minifyer/java_base.rb",
     "lib/juicer/minifyer/yui_compressor.rb"
   ]
-  s.homepage = %q{http://github.com/cjohansen/juicer}
+  s.homepage = %q{http://github.com/fstani/juicer}
   s.post_install_message = %q{Juicer does not ship with third party libraries. You probably want to install
 Yui Compressor and JsLint now:
 
 juicer install yui_compressor
+juicer install closure_compiler
 juicer install jslint
 
 Happy juicing!
