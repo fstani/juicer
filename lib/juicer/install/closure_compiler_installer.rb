@@ -39,6 +39,7 @@ module Juicer
             # Extract to file/directory/symlink
             if entry.name.include? "closure-compiler-"
               file_name = entry.name
+            end
           end
           file.extract("README.md", File.join(target, version, "README.md"))
           file.extract(file_name, File.join(target, "bin", "#{base}.jar"))
