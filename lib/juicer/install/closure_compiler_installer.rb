@@ -13,7 +13,7 @@ module Juicer
       def initialize(install_dir = Juicer.home)
         super(install_dir)
         @latest = nil
-        @website = "https://dl.google.com/closure-compiler"
+        @website = "https://github.com/google/closure-compiler/wiki/Releases"
         @download_link = "https://dl.google.com/closure-compiler/compiler-latest.zip"
       end
 
@@ -32,9 +32,16 @@ module Juicer
         filename = download(@download_link)
         target = File.join(@install_dir, path)
 
+        file_name = ""
+
         Zip::ZipFile.open(filename) do |file|
+          file.each do |entry|
+            # Extract to file/directory/symlink
+            if entry.name.include? "closure-compiler-"
+              file_name = entry.name
+          end
           file.extract("README.md", File.join(target, version, "README.md"))
-          file.extract("closure-compiler-v20170124.jar", File.join(target, "bin", "#{base}.jar"))
+          file.extract(file_name, File.join(target, "bin", "#{base}.jar"))
         end
       end
 
